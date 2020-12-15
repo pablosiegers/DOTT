@@ -15,7 +15,7 @@ pipeline {
                     expression{env.EXECUTE}
                	}
                 steps {
-					sh 'echo "Updating 2 Second Stage, environment variable value:"'
+					sh 'echo "Checking webhook"'
                     sh 'echo ${EXECUTE}'
 				}
 			} 
