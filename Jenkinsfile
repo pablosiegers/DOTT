@@ -15,7 +15,7 @@ pipeline {
                     expression{env.EXECUTE}
                	}
                 steps {
-					sh 'echo "Updating Second Stage, environment variable value:"'
+					sh 'echo "Updating 2 Second Stage, environment variable value:"'
                     sh 'echo ${EXECUTE}'
 				}
 			} 
