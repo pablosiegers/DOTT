@@ -15,7 +15,7 @@ pipeline {
                     expression{env.EXECUTE}
                	}
                 steps {
-					sh 'echo "Checking webhook"'
+					sh 'echo "Checking webhook 2"'
                     sh 'echo ${EXECUTE}'
 				}
 			} 
