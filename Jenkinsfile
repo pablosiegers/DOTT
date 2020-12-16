@@ -1,7 +1,7 @@
 pipeline {
     agent {
 	    node {
-			label 'my-defined-label'
+			label 'master'
 			customWorkspace '/cidr_convert_api / node'
 	    }
     }
