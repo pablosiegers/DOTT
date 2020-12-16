@@ -20,7 +20,7 @@ pipeline {
 				    expression{env.EXECUTE}
                 }
 				steps {
-					sh 'echo "SonarQube Stage :)"'
+					sh 'echo "SonarQube Stage :D"'
 				}
 		}
         stage ('Unit Tests') {
