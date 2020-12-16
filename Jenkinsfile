@@ -2,7 +2,7 @@ pipeline {
     agent {
 	    node {
 			label 'master'
-			customWorkspace '/cidr_convert_api / node'
+			customWorkspace '/var/lib/jenkins/workspace/dott-job/cidr_convert_api/node'
 	    }
     }
     environment {
