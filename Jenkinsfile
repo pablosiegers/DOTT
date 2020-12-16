@@ -1,32 +1,36 @@
 pipeline {
-	agent any
+    agent any
     environment {
         EXECUTE = 'true'
     }
-		stages {
-			stage('One') {
-				steps {
-					sh 'echo "First Stage 4"'
-				}
-			}
-
-			stage('Two') {
-				when {
-                    expression{env.EXECUTE}
-               	}
-                steps {
-					sh 'echo "Checking webhook 2"'
-                    sh 'echo ${EXECUTE}'
-				}
-			} 
-
-			stage('Three') {
+    tools {nodejs "node"}
+    
+    stages {
+        stage('Cloning Git 1') {
+            steps {
+                git 'https://github.com/pablosiegers/DOTT'
+            }
+        }
+        stage('Install Dependencies'){
+            steps {
+                sh 'echo "Hola"'
+				sh 'cd cidr_convert_api'
+				sh 'pwd'
+                sh 'npm install'
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+		stage('Three') {
 				when {
 				    expression{!env.EXECUTE}
                 }
 				steps {
 					sh 'echo "Executing third sstage because the value of the environment variable is: ${EXECUTE}"'
 				}
-			}
 		}
+    }
 }
