@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-	    node {
-			label 'master'
-			customWorkspace '/var/lib/jenkins/workspace/dott-job/cidr_convert_api/node'
-	    }
-    }
+    agent any
     environment {
         EXECUTE = 'true'
     }
@@ -31,7 +26,7 @@ pipeline {
         }
 		stage('Three') {
 				when {
-				    expression{!env.EXECUTE}
+				    expression{env.EXECUTE}
                 }
 				steps {
 					sh 'echo "Executing third sstage because the value of the environment variable is: ${EXECUTE}"'
