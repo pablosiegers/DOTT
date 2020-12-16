@@ -6,7 +6,7 @@ pipeline {
     tools {nodejs "node"}
     
     stages {
-        stage('Cloning Git 1') {
+        stage('Cloning Git 2') {
             steps {
                 git 'https://github.com/pablosiegers/DOTT'
             }
