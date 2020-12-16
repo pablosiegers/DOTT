@@ -28,7 +28,7 @@ pipeline {
   							-Dsonar.projectKey=pablosiegers_DOTT \
   							-Dsonar.sources=. \
   							-Dsonar.host.url=https://sonarcloud.io \
-  							-Dsonar.login="bcbfcecfef3ba4abdca4f36b60c2191e65cbe6b7"
+  							-Dsonar.login=bcbfcecfef3ba4abdca4f36b60c2191e65cbe6b7"
 					   }
 				   }
 				}
