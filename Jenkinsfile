@@ -17,7 +17,7 @@ pipeline {
         }
 		stage('SonarQube') {
 				when {
-				    expression{!env.EXECUTE}
+				    expression{env.EXECUTE}
                 }
 				steps {
 					sh 'echo "SonarQube Stage"'
@@ -25,7 +25,7 @@ pipeline {
 		}
         stage ('Unit Tests') {
 				when {
-				    expression{env.EXECUTE}
+				    expression{!env.EXECUTE}
                 }
 				steps {
 					sh 'npm test -- ipv4validation'
