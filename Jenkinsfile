@@ -24,10 +24,10 @@ pipeline {
 				    def scannerHome = tool 'sonarqube';
 					   	withSonarQubeEnv("sonarqube-container") {
 						   sh "${tool("sonarqube")}/bin/sonar-scanner \
-						    -Dsonar.organization=pablosiegers \
-  							-Dsonar.projectKey=pablosiegers_DOTT \
-  							-Dsonar.sources=. \
-  							-Dsonar.host.url=https://sonarcloud.io "
+						  	-Dsonar.organization=pablosiegers \
+							-Dsonar.projectKey=pablosiegers_DOTT \
+							-Dsonar.sources=. \
+							-Dsonar.host.url=https://sonarcloud.io"
 					   }
 				   }
 				}
