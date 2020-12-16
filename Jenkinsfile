@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+	    node {
+			label 'my-defined-label'
+			customWorkspace '/cidr_convert_api / node'
+	    }
+    }
     environment {
         EXECUTE = 'true'
     }
