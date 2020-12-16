@@ -24,12 +24,12 @@ pipeline {
 				}
 		}
         stage ('Unit Tests') {
-				try {
+				when {
+				    expression{!env.EXECUTE}
+                }
+				steps {
+					sh 'npm test -- ipv4validation'
 					sh 'npm test'
-				}
-				catch (exc) {
-					echo 'Something failed, I should sound the klaxons!'
-					throw
 				}
         }
 		
