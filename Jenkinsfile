@@ -20,7 +20,17 @@ pipeline {
 				    expression{env.EXECUTE}
                 }
 				steps {
-					sh 'echo "SonarQube Stage :3"'
+					script {
+				    def scannerHome = tool 'sonarqube';
+					   	withSonarQubeEnv("sonarqube-container") {
+						   sh "${tool("sonarqube")}/bin/sonar-scanner \
+						    -Dsonar.organization=pablosiegers \
+  							-Dsonar.projectKey=pablosiegers_DOTT \
+  							-Dsonar.sources=. \
+  							-Dsonar.host.url=https://sonarcloud.io \
+  							-Dsonar.login=bcbfcecfef3ba4abdca4f36b60c2191e65cbe6b7
+					   }
+				   }
 				}
 		}
         stage ('Unit Tests') {
