@@ -10,7 +10,7 @@ pipeline {
                 git 'https://github.com/pablosiegers/DOTT'
             }
         }
-        stage('Install Dependencies - Building App'){
+        stage('Install Dependencies - Building App 2'){
             steps {
                 sh 'npm install'
             }
