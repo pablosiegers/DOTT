@@ -5,14 +5,13 @@ pipeline {
     }
     tools {nodejs "node"}
     stages {
-        stage('Cloning Git 3') {
+        stage('Cloning Git') {
             steps {
                 git 'https://github.com/pablosiegers/DOTT'
             }
         }
-        stage('Install Dependencies'){
+        stage('Install Dependencies - Building App'){
             steps {
-                sh 'echo "Hola"'
                 sh 'npm install'
             }
         }
@@ -24,12 +23,12 @@ pipeline {
 					sh 'echo "SonarQube Stage"'
 				}
 		}
-        stage ('Test') {
+        stage ('Unit Tests') {
 				when {
 				    expression{env.EXECUTE}
                 }
 				steps {
-					sh 'npm test -- ipv4validation.js'
+					sh 'npm test -- ipv4validation'
 					sh 'npm test'
 				}
         }
