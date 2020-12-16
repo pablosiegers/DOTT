@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Cloning Git 1') {
             steps {
-                git 'https://github.com/pablosiegers/mocha_testing'
+                git 'https://github.com/pablosiegers/DOTT/tree/master/cidr_convert_api/node'
             }
         }
         stage('Install Dependencies'){
