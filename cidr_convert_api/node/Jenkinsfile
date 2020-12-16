@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    
+    tools {nodejs "node"}
+    
+    stages {
+        stage('Cloning Git 3') {
+            steps {
+                git 'https://github.com/pablosiegers/mocha_testing'
+            }
+        }
+        stage('Install Dependencies'){
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+    }
+}
