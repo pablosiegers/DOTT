@@ -34,10 +34,10 @@ pipeline {
         }
         stage ('Unit Tests') {
 				when {
-				    expression{!env.EXECUTE}
+				    expression{env.EXECUTE}
                 }
 				steps {
-					sh 'npm test'
+					sh 'npm run test'
 				}
         }
 		
