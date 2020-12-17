@@ -41,7 +41,8 @@ pipeline {
 					script {
 						try {
 							sh 'npm test'
-						}catch{
+						}
+						catch (exc){
 							sh 'echo "Unit test failed"'
 						}
 					}
