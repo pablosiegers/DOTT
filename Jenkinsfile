@@ -10,6 +10,11 @@ pipeline {
                 git 'https://github.com/pablosiegers/DOTT'
             }
         }
+		stage('Install Dependencies - Building App'){
+            steps {
+                sh 'npm install'
+            }
+        }
 		stage('SonarQube') {
 				when {
 				    expression{env.EXECUTE}
@@ -27,11 +32,7 @@ pipeline {
 				   }
 				}
 		}
-		stage('Install Dependencies - Building App'){
-            steps {
-                sh 'npm install'
-            }
-        }
+		
         stage ('Unit Tests') {
 				when {
 				    expression{!env.EXECUTE}
