@@ -1,9 +1,9 @@
 {
   "name": "devops-api-js",
   "version": "1.0.0",
+  "type": "module",
   "description": "API for interviewing process",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "test": "mocha --require babel-core/register",
     "start": "NODE_ENV=production babel-node index.js",
