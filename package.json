@@ -1,7 +1,9 @@
 {
+  "type": "module"
+}
+{
   "name": "devops-api-js",
   "version": "1.0.0",
-  "type": "module",
   "description": "API for interviewing process",
   "main": "server.js",
   "scripts": {
