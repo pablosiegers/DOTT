@@ -12,9 +12,10 @@ pipeline {
         }
 		stage('Install Dependencies - Building App'){
             steps {
-                sh 'npm install'
+                //sh 'npm install'
 				sh 'npm install -D esm' //save the package for development purpose and this will install the ECMAScript to interpret and execute the unit test tests
 				sh 'npm install babel-preset-es2015 --save-dev' //Installing older babel architecture to execute Unit tests
+				sh 'npm --version'
             }
         }
 		stage('SonarQube') {
