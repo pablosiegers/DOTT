@@ -26,7 +26,7 @@ pipeline {
 						   sh "${tool("sonarqube")}/bin/sonar-scanner \
 						  	-Dsonar.organization=pablosiegers \
 							-Dsonar.projectKey=pablosiegers_DOTT \
-							-Dsonar.sources=. \
+							-Dsonar.sources=cidr_convert_api/node \
 							-Dsonar.host.url=https://sonarcloud.io"
 					   }
 				   }
