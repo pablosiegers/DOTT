@@ -37,7 +37,7 @@ pipeline {
 				    expression{env.EXECUTE}
                 }
 				steps {
-					sh 'npm run test'
+					sh 'npm test'
 				}
         }
 		
