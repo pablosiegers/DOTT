@@ -32,7 +32,7 @@ pipeline {
 						  	-Dsonar.organization=pablosiegers \
 							-Dsonar.projectKey=pablosiegers_DOTT \
 							-Dsonar.sources=. \
-							-Dsonar.javascript.lcov.reportPaths=/var/lib/jenkins/workspace/final_project_job/node_modules/npm/node_modules/mute-stream/coverage/lcov.info \
+							-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
 							-Dsonar.host.url=https://sonarcloud.io"
 								//-Dsonar.exclusion=/var/lib/jenkins/workspace/final_project_job \
 					   		
