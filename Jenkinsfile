@@ -33,8 +33,8 @@ pipeline {
 							-Dsonar.projectKey=pablosiegers_DOTT \
 							-Dsonar.sources=. \
 							-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+							-Dsonar.exclusion=coverage \
 							-Dsonar.host.url=https://sonarcloud.io"
-								//-Dsonar.exclusion=/var/lib/jenkins/workspace/final_project_job \
 					   		
 						}
 				   }
