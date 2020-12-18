@@ -31,7 +31,7 @@ pipeline {
 							-Dsonar.projectKey=pablosiegers_DOTT \
 							-Dsonar.sources=. \
 							-Dsonar.host.url=https://sonarcloud.io \
-							-Dsonar.javascript.lcov.reportPaths=node_modules/npm/node_modules/mute_stream/coverage/lcov.info"
+							-Dsonar.javascript.lcov.reportPaths=$WORKSPACE/node_modules/npm/node_modules/mute_stream/coverage/lcov.info"
 					   }
 				   }
 				}
