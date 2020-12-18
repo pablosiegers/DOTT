@@ -31,7 +31,7 @@ pipeline {
 						   sh "${tool("sonarqube")}/bin/sonar-scanner \
 						  	-Dsonar.organization=pablosiegers \
 							-Dsonar.projectKey=pablosiegers_DOTT \
-							-Dsonar.sources=* \
+							-Dsonar.sources=. \
 							-Dsonar.javascript.lcov.reportPaths=/var/lib/jenkins/workspace/final_project_job/node_modules/npm/node_modules/mute-stream/coverage/lcov.info \
 							-Dsonar.host.url=https://sonarcloud.io"
 								//-Dsonar.exclusion=/var/lib/jenkins/workspace/final_project_job \
