@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        EXECUTE = 'true'
-    }
     tools {nodejs "node"}
     stages {
         stage('Cloning Git') {
@@ -19,28 +16,27 @@ pipeline {
             }
         }
 		stage('SonarQube - Static Code Analysis') {
-				when {
-				    expression{env.EXECUTE}
-                }
 				steps {
 					script {
-				    def scannerHome = tool 'sonarqube';
-					   	withSonarQubeEnv("sonarqube") {
-						   sh "${tool("sonarqube")}/bin/sonar-scanner \
-						  	-Dsonar.organization=pablosiegers \
-							-Dsonar.projectKey=pablosiegers_DOTT \
-							-Dsonar.sources=. \
-							-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-							-Dsonar.exclusions=coverage/** \
-							-Dsonar.host.url=https://sonarcloud.io"
+						try {
+				   	 		def scannerHome = tool 'sonarqube';
+					   			withSonarQubeEnv("sonarqube") {
+						   			sh "${tool("sonarqube")}/bin/sonar-scanner \
+						  				-Dsonar.organization=pablosiegers \
+										-Dsonar.projectKey=pablosiegers_DOTT \
+										-Dsonar.sources=. \
+										-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+										-Dsonar.exclusions=coverage/ \
+										-Dsonar.host.url=https://sonarcloud.io"
+								}
+						}
+						catch (exc) {
+							sh 'echo "Static Code Analysis did not pass"'
 						}
 				   }
 				}
 		}
         stage ('Testing Unit Tests') {
-				when {
-				    expression{env.EXECUTE}
-                }
 				steps {
 					script {
 						try {
