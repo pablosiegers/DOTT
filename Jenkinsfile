@@ -26,7 +26,7 @@ pipeline {
 										-Dsonar.projectKey=pablosiegers_DOTT \
 										-Dsonar.sources=. \
 										-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-										-Dsonar.exclusions=coverage/ \
+										-Dsonar.exclusions=coverage/** \
 										-Dsonar.host.url=https://sonarcloud.io"
 								}
 						}
