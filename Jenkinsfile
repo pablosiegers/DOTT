@@ -16,16 +16,14 @@ pipeline {
 				//sh 'npm install -D esm' //save the package for development purpose and this will install the ECMAScript to interpret and execute the unit test tests
 				//sh 'npm install babel-preset-env --save-dev' //Installing older babel architecture to execute Unit tests
 				sh 'npm install nyc --save-dev'
-				sh 'pwd'
             }
         }
-		stage('SonarQube') {
+		stage('SonarQube - Static Code Analysis') {
 				when {
 				    expression{env.EXECUTE}
                 }
 				steps {
 					script {
-						sh 'pwd'
 				    def scannerHome = tool 'sonarqube';
 					   	withSonarQubeEnv("sonarqube") {
 						   sh "${tool("sonarqube")}/bin/sonar-scanner \
@@ -35,12 +33,11 @@ pipeline {
 							-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
 							-Dsonar.exclusions=coverage/** \
 							-Dsonar.host.url=https://sonarcloud.io"
-					   		
 						}
 				   }
 				}
 		}
-        stage ('Unit Tests') {
+        stage ('Testing Unit Tests') {
 				when {
 				    expression{env.EXECUTE}
                 }
@@ -50,7 +47,7 @@ pipeline {
 							sh 'npm test'
 						}
 						catch (exc){
-							sh 'echo "Unit test failed"'
+							sh 'echo "Unit tests did not pass"'
 						}
 					}
 				}
