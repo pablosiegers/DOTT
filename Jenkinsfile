@@ -16,6 +16,7 @@ pipeline {
 				//sh 'npm install -D esm' //save the package for development purpose and this will install the ECMAScript to interpret and execute the unit test tests
 				//sh 'npm install babel-preset-env --save-dev' //Installing older babel architecture to execute Unit tests
 				sh 'npm install nyc --save-dev'
+				sh 'pwd'
             }
         }
 		stage('SonarQube') {
@@ -24,6 +25,7 @@ pipeline {
                 }
 				steps {
 					script {
+						sh 'pwd'
 				    def scannerHome = tool 'sonarqube';
 					   	withSonarQubeEnv("sonarqube") {
 						   sh "${tool("sonarqube")}/bin/sonar-scanner \
