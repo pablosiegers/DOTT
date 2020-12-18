@@ -13,9 +13,9 @@ pipeline {
 		stage('Install Dependencies - Building App'){
             steps {
                 //sh 'npm install'
-				sh 'npm install -D esm' //save the package for development purpose and this will install the ECMAScript to interpret and execute the unit test tests
-				sh 'npm install babel-preset-env --save-dev' //Installing older babel architecture to execute Unit tests
-				sh 'npm --version'
+				//sh 'npm install -D esm' //save the package for development purpose and this will install the ECMAScript to interpret and execute the unit test tests
+				//sh 'npm install babel-preset-env --save-dev' //Installing older babel architecture to execute Unit tests
+				sh 'npm install nyc --save-dev'
             }
         }
 		stage('SonarQube') {
@@ -30,7 +30,8 @@ pipeline {
 						  	-Dsonar.organization=pablosiegers \
 							-Dsonar.projectKey=pablosiegers_DOTT \
 							-Dsonar.sources=. \
-							-Dsonar.host.url=https://sonarcloud.io"
+							-Dsonar.host.url=https://sonarcloud.io \
+							-Dsonar.javascript.lcov.reportPaths=node_modules/npm/node_modules/mute_stream/coverage/lcov.info"
 					   }
 				   }
 				}
